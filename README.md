@@ -6,7 +6,7 @@ To deploy your branch to all nodes
 1. Git commit, push your branch to github.
 
 2. From repository root directory: 
-`sh /utils/deploy_branch.sh [netid] [branch name]`
+`sh utils/deploy_branch.sh [netid] [branch name]`
 
 ## Cluster Usage
 
