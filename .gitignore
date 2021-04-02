@@ -139,3 +139,5 @@ cython_debug/
 
 /datasets/*
 notebooks/virtual-env
+
+*/**/.DS_Store
