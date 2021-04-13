@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package service;
+
+// Generate service.pb.go:
+// protoc --proto_path=FileService --go_out=plugins=grpc:FileService FileService/service.proto
+
+service FileTransfer {
+	// Upload a file to another location
+	rpc Upload(UploadRequest) returns (UploadReply) {}
+	// Download a file from another location
+	rpc Download(DownloadRequest) returns (DownloadReply) {}
+}
+
+message UploadRequest {
+	bytes fileContents = 1;
+	string sdfsFileName = 2;
+    bool isMultipleChunks = 3;
+    bool isFirstChunk = 4;
+}
+
+message UploadReply {
+	bool status = 1;
+}
+
+message DownloadRequest {
+    string sdfsFileName = 1;
+    int32 chunkNum = 2;
+}
+
+message DownloadReply {
+	bool doesFileExist = 1;
+	bytes fileContents = 2;
+    bool isMultipleChunks = 3;
+    bool isLastChunk = 4;
+}
